@@ -29,4 +29,15 @@ public class InputReader {
         return value;
     }
 
+    public boolean readBoolean(String message) {
+        System.out.println(message);
+        String input = scanner.nextLine().trim().toLowerCase();
+
+        while (!input.equals("on") && !input.equals("off")) {
+            System.out.println("Please type On or Off:");
+            input = scanner.nextLine().trim().toLowerCase();
+        }
+        return input.equals("on");
+    }
+
 }
