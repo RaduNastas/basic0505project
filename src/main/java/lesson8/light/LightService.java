@@ -17,6 +17,8 @@ public class LightService {
         updateBrightness(light);
         toggleLight(light);
         System.out.println("Updated light status: \n" + light);
+
+        scanner.close();
     }
 
     private Light createAndConfigureLight() {
