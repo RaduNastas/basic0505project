@@ -38,7 +38,7 @@ public class Light {
 
     @Override
     public String toString() {
-        return String.format("Light location: %s\n Light brightness: %d\n Light is on/off: %s\n", location, brightness, onOff);
+        return String.format("Light location: %s\nLight brightness: %d\nLight is on/off: %s\n", location, brightness, onOff);
     }
 
 }
