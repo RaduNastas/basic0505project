@@ -1,0 +1,67 @@
+Product Catalog - Functional Specification
+
+You must implement the following functionality:
+
+1. Storage of products with a predefined capacity.
+2. Adding a new product to the catalog.
+3. Searching for a product by its catalog ID.
+4. Searching for products by manufacturer.
+5. Searching for products by product name.
+6. Searching for products by both manufacturer and product name.
+7. Write unit tests to verify all service methods.
+
+Implementation Details:
+
+A) Class: ProductCatalog
+   Fields:
+     - String catalogueProductId
+     - String manufacturer
+     - String productName
+   Constructor:
+     - A constructor with all fields as parameters.
+   Methods:
+     - Getters for all fields.
+     - equals() method.
+     - toString() method.
+     - hashCode() method.
+
+B) Class: ProductCatalogRepository
+   Fields:
+     - private ProductCatalog[] products
+     - private int index
+   Constructor:
+     - public ProductCatalogRepository(int catalogueSize)
+     - Initialize the array with the given size.
+     - Initialize index to 0.
+   Methods:
+     1. save(ProductCatalog product)
+     2. findProductById(String id)
+     3. findProductByManufacturer(String manufacturer)
+     4. findProductByName(String name)
+     5. findProductByManufacturerAndName(String manufacturer, String name)
+     6. findAll()
+
+C) Class: ProductCatalogService
+   Dependencies:
+     - ProductCatalogRepository repository
+   Constructor:
+     - Inject the repository via constructor.
+   Methods:
+     1. addProduct(String id, String manufacturer, String name)
+     2. getProductById(String id)
+     3. getProductByManufacturer(String manufacturer)
+     4. getProductByName(String name)
+     5. getProductByManufacturerAndName(String manufacturer, String name)
+     6. getAllProducts()
+
+D) Unit Tests: ProductCatalogServiceTest
+   1. addProductSuccess() – test for successful addition
+   2. addProductFailureWhenFullReturnFalse() – test when catalog is full
+   3. getProductByIdSuccess() – retrieve product by ID
+   4. getProductByIdWhenNotExistReturnNull() – retrieve nonexistent product by ID
+   5. getProductByManufacturer() – retrieve products by manufacturer
+   6. getProductByManufacturerWhenNoneMatchReturnsEmpty() – no match for manufacturer
+   7. getProductByNameSuccess() – retrieve products by name
+   8. getProductByNameWhenNoneMatchReturnsEmpty() – no match for name
+   9. getProductByManufacturerAndName() – retrieve by both manufacturer and name
+  10. getAllProducts() – retrieve all added products
