@@ -1,5 +1,6 @@
 package lesson21;
 
+import javaBasis.lesson21.AverageSum;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

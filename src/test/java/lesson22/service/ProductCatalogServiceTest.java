@@ -1,7 +1,8 @@
 package lesson22.service;
 
-import lesson22.entity.ProductCatalog;
-import lesson22.repository.ProductCatalogRepository;
+import javaBasis.lesson22.entity.ProductCatalog;
+import javaBasis.lesson22.repository.ProductCatalogRepository;
+import javaBasis.lesson22.service.ProductCatalogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
