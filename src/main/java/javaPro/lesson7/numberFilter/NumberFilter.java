@@ -8,9 +8,9 @@ public class NumberFilter {
 
     public static void main(String[] args) {
         List<Integer> numbers = new ArrayList<>(List.of(10, 25, 5, 30, 15, 8));
-        int removeGreaterThan = 15;
+        int deleteGreaterThan = 15;
 
-        removeGreaterThan(numbers, removeGreaterThan);
+        removeGreaterThan(numbers, deleteGreaterThan);
 
         System.out.println("Modified list: " + numbers);
     }
