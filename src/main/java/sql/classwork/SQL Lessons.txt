@@ -1,0 +1,211 @@
+SQL Lessons
+
+/* SELECT column1, column2
+FROM table_name; */
+-- Вывести таблицу customers
+select *
+from customers;
+/* select *
+from Customers; */
+
+
+-- Вывести поля first_name, age, country из customers.
+select first_name, age, country
+from customers;
+-- Ошибки
+/* selet first_name, last_name
+from customers; */
+-- Error: near "selet": syntax error
+
+/* select firstname, last_name
+from customers; */
+-- Error: no such column: firstname
+
+/* select first_name, last_name
+from employees; */
+-- Error: no such table: employees
+
+
+/* select first_name, last_name
+from customers
+
+select first_name, last_name
+from customers */
+-- Error: near "select": syntax error
+
+-- Вывеси пользователей, которым больше 30.
+select *
+from customers
+where age > 30;
+-- Вывеси пользователей, которым больше 30.
+select *
+from customers
+where age > 30;
+
+-- 1. from 
+-- 2. where 
+-- 3. select
+
+-- Вывеси пользователей, которым больше 40.
+select *
+from customers
+where age > 40;
+-- SQL query successfully executed. However, the result set is empty.
+
+
+-- Вывести имена и фамилии пользователей, которые из USA.
+select first_name, last_name
+from customers
+where country = 'USA';
+
+select first_name, last_name
+from customers
+where country = "USA";
+
+select first_name, last_name
+from customers
+where country like 'usa';
+
+-- Вывести имена и фамилии пользователей, которые не из USA.
+select first_name, last_name
+from customers
+where country != 'USA';
+
+select first_name, last_name
+from customers
+where country <> 'USA';
+
+select first_name, last_name
+from customers
+where country not like 'usa';
+
+-- Вывести пользователей, которым от 25 до 30.(вкл)
+select *
+from customers
+where age >= 25 and age <= 30;
+
+select *
+from customers
+where age between 25 and 30;
+
+-- Вывести пользователей, которым меньше 25 или больше 30.
+select *
+from customers
+where age < 25 or age > 30;
+
+select *
+from customers
+where age not between 25 and 30;
+
+-- Вывести пользователей, которые из USA или из UK.
+-- Вывести пользователей из USA и UK.
+select *
+from customers
+where country = 'USA' or country = 'UK';
+
+select *
+from customers
+where country in ('USA', 'UK');
+-- Вывести пользователей не из USA и UK.
+select *
+from customers
+where country not in ('USA', 'UK');
+
+select *
+from customers
+where country != 'USA' and country != 'UK';
+
+select *
+from customers
+where not (country = 'USA' or country = 'UK');
+
+select first_name, last_name
+from customers
+where country in ('USA'); */
+select first_name, last_name
+from customers
+where country not in ('USA');
+-- Вывести пользователей, которым либо 25, либо 30, либо 28.
+select *
+from customers
+where age in (25, 30, 28);
+
+-- Вывести пользователей, у которых в имени есть 'b'.
+select *
+from customers
+where first_name like '%b%';
+-- LIKE
+-- where column like 'шаблон'
+-- % - любое кол/во любых символов
+-- _ - один символ(любой)
+
+-- Вывести пользователей, у которых имя начинается на букву 'b'.
+/* select *
+from customers
+where first_name like 'b%'; */
+
+-- Вывести пользователей, у которых имя начинается на 'jo'
+/* select *
+from customers
+where first_name like 'jo%'; */
+
+-- Вывести пользователей, у которых в имени есть 'b'.
+/* select *
+from customers
+where first_name like '%b%'; */
+
+
+-- Вывести пользователей, у которых вторая буква в имени 'o'.
+/* select * 
+from customers
+where first_name like '_o%'; */
+
+-- Вывести пользователей, у которых предпоследняя буква в имени 'r'.
+/* select * 
+from customers
+where first_name like '%r_'; */
+
+-- Вывести пользователей, у которых вторая буква в имени 'o', а предпоследняя буква 'h'.
+select * 
+from customers
+where first_name like '_o%h_';
+
+-- Вывести пользователей, у которых имя состоит из 4 букв.
+select * 
+from customers
+where first_name like '____';
+
+Update lista studenti orasele in care locuesc.
+UPDATE students
+SET city = CASE 
+    WHEN first_name = 'Anna'    AND last_name = 'Petrova'    THEN 'Berlin'
+    WHEN first_name = 'Ivan'    AND last_name = 'Sidorov'    THEN 'Munich'
+    WHEN first_name = 'Maria'   AND last_name = 'Ivanova'    THEN 'Hamburg'
+    WHEN first_name = 'Dmitry'  AND last_name = 'Smirnov'    THEN 'Berlin'
+    WHEN first_name = 'Olga'    AND last_name = 'Kuznetsova' THEN 'Cologne'
+    WHEN first_name = 'Nikolay' AND last_name = 'Popov'      THEN 'Frankfurt'
+    WHEN first_name = 'Elena'   AND last_name = 'Volkova'    THEN 'Berlin'
+    WHEN first_name = 'Sergey'  AND last_name = 'Morozov'    THEN 'Stuttgart'
+    WHEN first_name = 'Irina'   AND last_name = 'Sokolova'   THEN 'Dresden'
+    WHEN first_name = 'Pavel'   AND last_name = 'Lebedev'    THEN 'Leipzig'
+END;
+
+
+Update lista studenti virsta 
+UPDATE students
+SET age = CASE
+    WHEN first_name = 'Anna'    AND last_name = 'Petrova'    THEN 20
+    WHEN first_name = 'Ivan'    AND last_name = 'Sidorov'    THEN 22
+    WHEN first_name = 'Maria'   AND last_name = 'Ivanova'    THEN 19
+    WHEN first_name = 'Dmitry'  AND last_name = 'Smirnov'    THEN 21
+    WHEN first_name = 'Olga'    AND last_name = 'Kuznetsova' THEN 23
+    WHEN first_name = 'Nikolay' AND last_name = 'Popov'      THEN 20
+    WHEN first_name = 'Elena'   AND last_name = 'Volkova'    THEN 22
+    WHEN first_name = 'Sergey'  AND last_name = 'Morozov'    THEN 19
+    WHEN first_name = 'Irina'   AND last_name = 'Sokolova'   THEN 21
+    WHEN first_name = 'Pavel'   AND last_name = 'Lebedev'    THEN 20
+END;
+
+
+
+
